@@ -9,22 +9,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import jp.co.aforce.beans.CustomerBean;
-import jp.co.aforce.dao.CustomerDAO;
+import jp.co.aforce.beans.UserBean;
+import jp.co.aforce.dao.UserDAO;
 
-/**
- * Servlet implementation class RegisterMember
- */
 @WebServlet("/views/register-member")
-public class RegisterMember extends HttpServlet {
+public class UserAddConfirmServlet extends HttpServlet {
 	
 	// 新規会員登録画面への遷移
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("/views/member-home.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/views/userAdd.jsp").forward(request, response);
     }
-	
 	
 	// 会員情報を登録
 	@Override
@@ -33,7 +28,7 @@ public class RegisterMember extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			
-			CustomerBean cb = new CustomerBean();
+			UserBean cb = new UserBean();
 			cb.setMemberId(request.getParameter("member_id"));
 			cb.setPassword(request.getParameter("password"));
 			cb.setLastName(request.getParameter("last_name"));
@@ -41,27 +36,25 @@ public class RegisterMember extends HttpServlet {
 			cb.setAddress(request.getParameter("address"));
 			cb.setMailAddress(request.getParameter("mail_address"));
 			
-			CustomerDAO dao = new CustomerDAO();
+			UserDAO dao = new UserDAO();
 			
-			int result = dao.insert(cb);
+			//重複チェック
+			boolean canRegister = dao.checkDuplicate(cb);
 			
-			if (result > 0) {
-				//登録成功→セッションに保存し、user-menu.jspへ
+			if (canRegister) {
+				//セッションに保存して確認画面へ
 				HttpSession session = request.getSession();
                 session.setAttribute("customer", cb);
-				request.getRequestDispatcher("/views/user-menu.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/userAddConfirm.jsp").forward(request, response);
 			} else {
-				request.getRequestDispatcher("/views/register-error.jsp").forward(request, response);
+				//エラーメッセージをセット、エラー画面へ
+				request.setAttribute("errorMessage", "入力したユーザーIDとパスワードは、すでに登録済みです。");
+				request.getRequestDispatcher("/views/login-error.jsp").forward(request, response);
 			}
+						
+		} catch (Exception e){
+			e.printStackTrace();
+			request.getRequestDispatcher("/views/error.jsp").forward(request, response);
 		}
-			
-			catch (Exception e){
-				System.out.println(e);
-				e.printStackTrace();
-				request.getRequestDispatcher("/views/error.jsp").forward(request, response);
-				
-			}
-		}
-		
-
+	}
 }

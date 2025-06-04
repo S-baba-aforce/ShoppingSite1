@@ -9,7 +9,6 @@ public class DAO {
 	
 	static DataSource ds;
 	
-	
 	public Connection getConnection() throws Exception {
 		if (ds == null) {
 			InitialContext ic = new InitialContext();
@@ -17,5 +16,4 @@ public class DAO {
 		}
 		return ds.getConnection();
 	}
-
 }

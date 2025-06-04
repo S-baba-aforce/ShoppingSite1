@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login-Error</title>
+<title>修正登録完了</title>
 </head>
 <body>
 
+	<h2>修正登録完了</h2>
 	
-	<%@taglib prefix = "c" uri = "jakarta.tags.core" %>
-
-	<h2>${errorMessage}</h2>
+	<hr>
 	
-	<a href = "login-in.jsp">ログイン画面へ戻る</a>
+	<a href = "userAdd.jsp">会員メニュー画面へ戻る</a>
 
 </body>
 </html>

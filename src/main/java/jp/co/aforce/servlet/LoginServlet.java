@@ -9,27 +9,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import jp.co.aforce.beans.CustomerBean;
-import jp.co.aforce.dao.CustomerDAO;
-
+import jp.co.aforce.beans.UserBean;
+import jp.co.aforce.dao.UserDAO;
 
 @WebServlet(urlPatterns = {"/views/login"})
 public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 	
-		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 	
 		try {
-			CustomerDAO dao = new CustomerDAO();
-			CustomerBean customer = dao.search(id, password);
+			UserDAO dao = new UserDAO();
+			UserBean customer = dao.search(id, password);
 	
 			if(customer != null) {
-				HttpSession session = request.getSession();
+				String fullName = customer.getLastName() + customer.getFirstName();
+ 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
-				response.sendRedirect("user-menu.jsp");
+				request.setAttribute("fullName", fullName);
+				request.getRequestDispatcher("user-menu.jsp").forward(request, response);
 			} else {
 				response.sendRedirect("login-error.jsp");
 			}
@@ -37,7 +37,5 @@ public class LoginServlet extends HttpServlet {
 		e.printStackTrace();
 		response.sendRedirect("error.jsp");
 		}
-		
 	}
-	
 }
