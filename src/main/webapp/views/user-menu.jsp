@@ -7,13 +7,16 @@
 <title>ようこそ</title>
 </head>
 <body>
-
+	
+	<h2>会員メニュー</h2>
+	
 	<%@taglib prefix = "c" uri = "jakarta.tags.core" %>
 	
-	<p>「ようこそ、${customer.memberId }さん！」</p>
+	<p>「ようこそ、${customer.fullName}さん！」</p>
 	
-	<p><input type = "submit" value = "修正"></p>
-	<p><input type = "submit" value = "削除"></p>
+	<a href = "userEdit.jsp">編集</a>
+	<br>
+	<a href = "userDeleteConfirm.jsp">削除</a>
 	
 	<!-- ログアウト -->
 	<form action = "Logout" method = "post">

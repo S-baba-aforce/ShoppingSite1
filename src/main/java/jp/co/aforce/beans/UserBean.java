@@ -1,6 +1,6 @@
 package jp.co.aforce.beans;
 
-public class CustomerBean implements java.io.Serializable {
+public class UserBean implements java.io.Serializable {
 
 	private String memberId;
 	private String password;
@@ -33,6 +33,9 @@ public class CustomerBean implements java.io.Serializable {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	public String getFullName() {
+		return lastName + firstName;
+	}
 	public String getAddress() {
 		return address;
 	}
@@ -45,7 +48,4 @@ public class CustomerBean implements java.io.Serializable {
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
 	}
-	
-	
-	
 }

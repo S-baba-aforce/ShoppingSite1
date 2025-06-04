@@ -7,6 +7,7 @@
 <title>ログイン/新規会員登録</title>
 </head>
 <body>
+
 	<!-- ログイン -->
 	<form action = "login" method = "post">
 	
