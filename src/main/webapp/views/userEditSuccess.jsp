@@ -12,7 +12,7 @@
 	
 	<hr>
 	
-	<a href = "userAdd.jsp">会員メニュー画面へ戻る</a>
+	<a href = "user-menu.jsp">会員メニュー画面へ戻る</a>
 
 </body>
 </html>

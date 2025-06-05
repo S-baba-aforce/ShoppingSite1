@@ -32,7 +32,6 @@ public class UserAddServlet extends HttpServlet {
 				request.getRequestDispatcher("/views/login-error.jsp").forward(request, response);
 			}
 			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "登録時にエラーが発生しました。");
