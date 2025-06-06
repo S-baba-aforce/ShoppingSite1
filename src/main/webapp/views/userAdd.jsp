@@ -17,7 +17,7 @@
 	<p>名前（姓）:<input type = "text" name = "last_name" required></p>
 	<p>名前（名）:<input type = "text" name = "first_name" required></p>
 	<p>住所:<input type = "text" name = "address" required></p>
-	<p>メールアドレス<input type = "email" name = "mail_address" required></p>
+	<p>メールアドレス<input type = "mail" name = "mail_address" required></p>
 	
 	<input type = "submit" value = "確認">
 	<input type = "reset" value = "リセット">
