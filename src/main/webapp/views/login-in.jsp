@@ -23,5 +23,6 @@
 	<p><input type = "submit" value = "新規会員登録"></p>
 	</form>
 
+
 </body>
 </html>
