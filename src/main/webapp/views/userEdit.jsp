@@ -15,13 +15,13 @@
 	<p>名前（姓）:<input type = "text" name = "last_name" required></p>
 	<p>名前（名）:<input type = "text" name = "first_name" required></p>
 	<p>住所:<input type = "text" name = "address" required></p>
-	<p>メールアドレス<input type = "mail" name = "mail_address" required></p>
+	<p>メールアドレス<input type = "email" name = "mail_address" required></p>
 	
 	<input type = "submit" value = "確認">
 	
 	</form>
 	
-	<a href = "member-home.jsp">会員メニュー画面へ戻る</a>
+	<a href = "user-menu.jsp">会員メニュー画面へ戻る</a>
 
 </body>
 </html>
