@@ -10,7 +10,7 @@
 
 	<%@taglib prefix = "c" uri = "jakarta.tags.core" %>
 	
-	<h2>登録する内容はよろしいですか？</h2>
+	<h2>修正する内容はこちらでよろしいですか？</h2>
 	
 	<p>名前（姓）:${editCustomer.lastName }</p>
 	<p>名前（名）:${editCustomer.firstName }</p>

@@ -11,8 +11,8 @@
 	<!-- ログイン -->
 	<form action = "login" method = "post">
 	
-	<p>ID<input type = "text" name = "id"></p>
-	<p>パスワード<input type = "password" name = "password"></p>
+	<p>ID<input type = "text" name = "id" pattern = "[A-Za-z0-9]+" required></p>
+	<p>パスワード<input type = "password" name = "password" required></p>
 	<p><input type = "submit" value = "ログイン"></p>
 	</form>
 	

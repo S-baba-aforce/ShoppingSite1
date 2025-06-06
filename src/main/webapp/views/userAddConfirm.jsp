@@ -23,9 +23,7 @@
 	<input type = "submit" value = "登録">
 	</form>
 	
-	<form action = "previous" method = "post">
-	<input type = "submit" value = "もどる">
-	</form>
+	<a href = "userAdd.jsp">もどる</a>
 	
 </body>
 </html>
