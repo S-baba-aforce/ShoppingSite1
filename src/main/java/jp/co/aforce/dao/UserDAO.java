@@ -3,6 +3,8 @@ package jp.co.aforce.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.co.aforce.beans.UserBean;
 
@@ -123,4 +125,55 @@ public class UserDAO extends DAO {
     	con.close();
     	return result;
     }
+    
+    //ユーザー情報全件取得
+    public List<UserBean> findAll() throws Exception {
+    	  List<UserBean> list = new ArrayList<>();
+    	  Connection con = getConnection();
+    	  PreparedStatement st = con.prepareStatement("SELECT * FROM customer");
+    	  ResultSet rs = st.executeQuery();
+
+    	  while (rs.next()) {
+    	    UserBean user = new UserBean();
+    	    user.setMemberId(rs.getString("MEMBER_ID"));
+    	    user.setPassword(rs.getString("PASSWORD"));
+    	    user.setLastName(rs.getString("LAST_NAME"));
+    	    user.setFirstName(rs.getString("FIRST_NAME"));
+    	    user.setAddress(rs.getString("ADDRESS"));
+    	    user.setMailAddress(rs.getString("MAIL_ADDRESS"));
+    	    list.add(user);
+    	  }
+
+    	  rs.close();
+    	  st.close();
+    	  con.close();
+    	  return list;
+    	}
+    
+    //ユーザー情報一件取得
+    public UserBean findUserById(String memberId) throws Exception {
+        Connection con = getConnection();
+
+        String sql = "SELECT * FROM customer WHERE MEMBER_ID = ?";
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, memberId);
+        ResultSet rs = st.executeQuery();
+
+        UserBean user = null;
+        if (rs.next()) {
+            user = new UserBean();
+            user.setMemberId(rs.getString("MEMBER_ID"));
+            user.setPassword(rs.getString("PASSWORD"));
+            user.setLastName(rs.getString("LAST_NAME"));
+            user.setFirstName(rs.getString("FIRST_NAME"));
+            user.setAddress(rs.getString("ADDRESS"));
+            user.setMailAddress(rs.getString("MAIL_ADDRESS"));
+        }
+
+        rs.close();
+        st.close();
+        con.close();
+        return user;
+    }
+
 }
