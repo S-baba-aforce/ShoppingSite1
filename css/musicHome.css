@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+/* ========== ベース設定 ========== */
+body {
+	background-color: #fdfcf8;
+	color: black;
+	font-family: 'ShipporiGothic',sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ========== ヘッダー ========== */
+header {
+	background-color: #fdfcf8;
+	border-bottom: 1px solid #ddd;
+	padding: 1em 2em;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+}
+
+header h1 {
+	margin-left: 10%;
+	font-size: 1.6em;
+	color: black;
+}
+
+.nav-desktop ul {
+	list-style: none;
+	display: flex;
+	gap: 1.5em;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-desktop li {
+	margin-right: 10%;
+}
+
+.nav-desktop a {
+	text-decoration: none;
+	color: #1E90FF;
+	font-weight: bold;
+	margin-right: 10%;
+}
+
+/* ========== メイン全体 ========== */
+main {
+	flex: 1;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 4em;
+}
+
+/* ========== 検索フォーム ========== */
+form#searchForm {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 2em;
+}
+
+#searchQuery {
+	flex: 1;
+	padding: 0.5em;
+	border: none;
+	border-bottom: 2px solid #666666;
+	background: transparent;
+	font-size: 1em;
+	outline: none;
+	width: 33vw;
+}
+
+form label {
+	display: flex;
+	align-items: center;
+	font-size: 0.95em;
+}
+
+button[type="submit"] {
+	background-color: none;
+	color: #222;
+	border: 2px solid #1E90FF;
+	padding: 0.5em 1.5em;
+	cursor: pointer;
+	font-size: 1em;
+	background: none;
+}
+
+button[type="submit"]:hover {
+	opacity: 0.8;
+}
+
+/* ラジオボタンを四角に */
+input[type="radio"] {
+	appearance: none;
+	width: 14px;
+	height: 14px;
+	border: 2px solid #222;
+	background-color: none;
+	margin-right: 4px;
+	cursor: pointer;
+	border-radius: 0;
+	position: relative;
+}
+
+input[type="radio"]:checked::after {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	background-color: #222;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+}
+/*#popup {*/
+/*	position: fixed;*/
+/*	top: 20%;*/
+/*	left: 50%;*/
+/*	transform: translateX(-50%);*/
+/*	background: white;*/
+/*	border: 1px solid #ddd;*/
+/*	padding: 2em;*/
+/*	box-shadow: 0 2px 10px rgba(0,0,0,0.1);*/
+/*	display: none;*/
+/*	z-index: 10;*/
+/*}*/
+/*#popup.hidden {*/
+/*	display: none;*/
+/*}*/
+/*#closeBtn {*/
+/*	margin-top: 1em;*/
+/*	background: none;*/
+/*	border: 1px solid #1E90FF;*/
+/*	color: #1E90FF;*/
+/*	padding: 0.3em 1em;*/
+/*	cursor: pointer;*/
+/*	border-radius: 3px;*/
+/*}*/
+
+/* ========== 楽曲リスト ========== */
+/* ランキング付きリスト */
+.music-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+	counter-reset: song;
+}
+
+.music-card {
+	display: flex;
+	align-items: center;
+	padding: 0.5em 0;
+	border-bottom: 1px solid #ddd;
+	font-size: 1em;
+	gap: 1em;
+	min-height: 100px;
+}
+
+/* ランキング番号 */
+.music-card .rank {
+	font-weight: bold;
+	color: #222;
+	min-width: 1.5em;
+	text-align: right;
+}
+
+/* 楽曲画像 */
+.music-card img {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	flex-shrink: 0;
+	border-radius: 5px;
+}
+
+.music-card a {
+	color: #222;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1em;
+    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.music-card a::before {
+	content: "‣";
+	color: #1E90FF;
+	font-weight: bold;
+	font-size: 1.8em;
+}	
+
+.music-card .title {
+	flex: 2;
+}
+
+.music-card .artist {
+	flex: 2;
+	color: #555;
+}
+
+.music-card .genre {
+	flex: 1;
+	font-size: 0.9em;
+	color: #666;
+}
+
+/*.music-card a::before {*/
+/*	content: "‣";*/
+/*	color: #1E90FF;*/
+/*	margin-right: 0.3em;*/
+/*	font-weight: bold;*/
+/*}*/
+
+/*.music-card p {*/
+/*	margin: 0;*/
+/*	font-size: 0.9em;*/
+/*	color: #555;*/
+/*}*/
+
+/* ========== セクション見出し ========== */
+h2 {
+	margin-left: 42.8%;
+	font-size: 1.4em;
+	margin-bottom: 1em;
+}
+
+/* ========== フッター ========== */
+footer {
+/*	text-align: center;*/
+	margin-left: 46%;
+	font-size: 0.9em;
+	padding: 1em 0;
+	color: #888;
+	margin-top: auto;
+}

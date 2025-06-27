@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Gothic&display=swap');
+
+body {
+  font-family: 'Shippori Gothic', sans-serif;
+  background-color: #fdfcf8;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.container {
+  padding: 2em;
+  max-width: 600px;
+}
+
+h2 {
+  color: #1E90FF;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+ul li {
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+
+a.btn {
+  display: inline-block;
+  padding: 0.7em 1.5em;
+  border: 2px solid #1E90FF;
+  background: none;
+  color: #1E90FF;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1em;
+}

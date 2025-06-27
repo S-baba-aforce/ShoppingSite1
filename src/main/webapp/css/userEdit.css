@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/* 全体レイアウト */
+body {
+    background-color: #fdfcf8;
+    color: black;
+    font-family: 'ShipporiGothic',sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* メイン（中央配置） */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 内容の中央寄せブロック */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    width: 100%;
+}
+
+/* タイトル */
+.container h2 {
+    font-size: 1.8em;
+    text-align: left;
+	width: 33vw;
+	margin: 0;
+}
+
+/* フォーム全体 */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    width: 100%;
+}
+
+/* 各入力項目 */
+form p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 33vw;
+    margin: 0;
+    font-size: 1em;
+    gap: 0.4em;
+}
+
+/* 入力欄 */
+input[type="text"],
+input[type="email"] {
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1em;
+    padding: 0.3em 0;
+}
+
+/* 送信ボタン */
+input[type="submit"] {
+    background: none;
+    border: 2px solid #1E90FF;
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* 戻るリンク */
+a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 1.5em;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 1em 0;
+    color: #888;
+}

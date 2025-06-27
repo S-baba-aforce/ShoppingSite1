@@ -24,6 +24,7 @@ public class MusicDAO extends DAO {
         music.setFile_path(rs.getString("file_path"));
         music.setDescription(rs.getString("description"));
         music.setCreated_at(rs.getTimestamp("created_at"));
+        music.setIcon_path(rs.getString("icon_path"));
 
         return music;
         
@@ -37,7 +38,7 @@ public class MusicDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st = con.prepareStatement(
-		        "SELECT m.*, a.name FROM music m " +
+		        "SELECT m.*, a.name, a.icon_path FROM music m " +
 		        "JOIN artist a ON m.artist_id = a.artist_id " +
 		        "ORDER BY m.created_at DESC LIMIT 5"
 		);
@@ -78,7 +79,7 @@ public class MusicDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st = con.prepareStatement(
-		        "SELECT m.*, a.name, COUNT(p.music_id) AS count " +
+		        "SELECT m.*, a.name, a.icon_path, COUNT(p.music_id) AS count " +
 		        "FROM music m " +
 				"LEFT JOIN purchase p ON m.music_id = p.music_id " +
 				"JOIN artist a ON m.artist_id = a.artist_id " +
@@ -153,7 +154,7 @@ public class MusicDAO extends DAO {
         List<MusicBean> list = new ArrayList<>();
         Connection con = getConnection();
         PreparedStatement st = con.prepareStatement(
-        		"SELECT m.*, a.name FROM music m " +
+        		"SELECT m.*, a.name, a.icon_path FROM music m " +
         		"JOIN artist a ON m.artist_id = a.artist_id " +
         		"WHERE m.title LIKE ?");
         st.setString(1, "%" + keyword + "%");
@@ -168,18 +169,19 @@ public class MusicDAO extends DAO {
     }
     
     //アーティスト検索
-    public List<MusicBean> searchArtistName(String keyword) throws Exception {
+    public List<MusicBean> searchArtistName(String query) throws Exception {
         List<MusicBean> artistNames = new ArrayList<>();
 
         Connection con = getConnection();
         PreparedStatement st = con.prepareStatement(
-                 "SELECT name FROM artist WHERE name LIKE ?");
+                 "SELECT artist_id, name FROM artist WHERE name LIKE ?");
          
-        st.setString(1, "%" + keyword + "%");
+        st.setString(1, "%" + query + "%");
         ResultSet rs = st.executeQuery();
         
         while (rs.next()) {
         	MusicBean music = new MusicBean();
+        	music.setArtist_id(rs.getInt("artist_id"));
             music.setName(rs.getString("name"));
             artistNames.add(music);
         }
@@ -238,7 +240,7 @@ public class MusicDAO extends DAO {
     //楽曲の詳細を取得
     public MusicBean findById(int id) throws Exception {
         Connection con = getConnection();
-        String sql = "SELECT m.*, a.name FROM music m JOIN artist a ON m.artist_id = a.artist_id WHERE m.music_id = ?";
+        String sql = "SELECT m.*, a.name, a.icon_path FROM music m JOIN artist a ON m.artist_id = a.artist_id WHERE m.music_id = ?";
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1, id);
         ResultSet rs = st.executeQuery();
@@ -339,7 +341,7 @@ public class MusicDAO extends DAO {
         Connection con = getConnection();
         
         String sql = """
-            SELECT m.*, a.name, COALESCE(SUM(p.amount), 0) AS amount
+            SELECT m.*, a.name, a.icon_path, COALESCE(SUM(p.amount), 0) AS amount
             FROM music m
             JOIN artist a ON m.artist_id = a.artist_id
             LEFT JOIN purchase p ON m.music_id = p.music_id

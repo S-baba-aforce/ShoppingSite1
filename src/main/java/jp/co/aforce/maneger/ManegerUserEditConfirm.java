@@ -50,7 +50,7 @@ public class ManegerUserEditConfirm extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "エラーが発生しました：" + e.getMessage());
-			request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
 		}
 	}
 }

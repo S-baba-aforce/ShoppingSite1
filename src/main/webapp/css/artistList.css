@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+body {
+	background-color: #fdfcf8;
+	color: black;
+	font-family: 'Shippori Gothic B1',sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ========== ヘッダー ========== */
+header {
+	background-color: #fdfcf8;
+	border-bottom: 1px solid #ddd;
+	padding: 1em 2em;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+}
+
+header h1 {
+	margin-left: 10%;
+	font-size: 1.6em;
+	color: black;
+}
+
+.nav-desktop ul {
+	list-style: none;
+	display: flex;
+	gap: 1.5em;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-desktop li {
+	margin-right: 10%;
+}
+
+.nav-desktop a {
+	text-decoration: none;
+	color: #1E90FF;
+	font-weight: bold;
+	margin-right: 10%;
+}
+
+/* ========== メイン全体 ========== */
+main {
+	flex: 1;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 4em;
+}
+
+/* ========== 検索フォーム ========== */
+form#searchForm {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 2em;
+}
+
+#searchQuery {
+	flex: 1;
+	padding: 0.5em;
+	border: none;
+	border-bottom: 2px solid #666666;
+	background: transparent;
+	font-size: 1em;
+	outline: none;
+	width: 33vw;
+}
+
+form label {
+	display: flex;
+	align-items: center;
+	font-size: 0.95em;
+}
+
+button[type="submit"] {
+	background-color: none;
+	color: #222;
+	border: 2px solid #1E90FF;
+	padding: 0.5em 1.5em;
+	cursor: pointer;
+	font-size: 1em;
+	background: none;
+}
+
+button[type="submit"]:hover {
+	opacity: 0.8;
+}
+
+/* ラジオボタンを四角に */
+input[type="radio"] {
+	appearance: none;
+	width: 14px;
+	height: 14px;
+	border: 2px solid #222;
+	background-color: none;
+	margin-right: 4px;
+	cursor: pointer;
+	border-radius: 0;
+	position: relative;
+}
+
+input[type="radio"]:checked::after {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	background-color: #222;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+}
+
+/* ========== ソート機能 ========== */
+.sort-form {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	gap: 0.5em;
+	margin-bottom: 1em;
+	font-size: 0.95em;
+}
+
+.sort-form select {
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #1E90FF;
+	color: black;
+	padding: 0.3em 0.5em;
+	font-size: 1em;
+	cursor: pointer;
+	appearance: none;
+	width: auto;
+}
+
+.sort-form select:focus {
+	outline: none;
+	border-bottom-color: #1E90FF;
+}
+
+.sort-form button {
+	background-color: none;
+	color: #222;
+	border: 2px solid #1E90FF;
+	padding: 0.5em 1.5em;
+	cursor: pointer;
+	font-size: 1em;
+	background: none;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #1E90FF;
+  padding: 0.3em 2em 0.3em 0.5em;
+  font-size: 1em;
+  color: black;
+  cursor: pointer;
+}
+
+.select-wrapper .custom-arrow {
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #1E90FF;
+  font-size: 0.9em;
+}
+
+
+/* ========== アーティストリスト ========== */
+/* ランキング付きリスト */
+.artist-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+	counter-reset: song;
+	align-items: center;
+}
+
+.artist-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.8em 0;
+	border-bottom: 1px solid #ddd;
+	font-size: 1em;
+	gap: 1.5em;
+	text-align: center;
+	min-height: 100px;
+}
+
+/* ランキング番号 */
+.artist-card .rank {
+	display: flex;
+	font-weight: bold;
+	color: #222;
+	min-width: 1.5em;
+	text-align: right;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	line-height: 1;
+}
+
+/* 楽曲画像 */
+.artist-card img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80px;         
+	line-height: 1;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	flex-shrink: 0;
+	border-radius: 5px;
+}
+
+.artist-card a {
+	display: flex;
+	justify-content: center;      
+	line-height: 1;
+	color: #222;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1em;
+    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	align-items: center;
+	height: 80px;
+}
+
+.artist-card a::before {
+	content: "‣";
+	color: #1E90FF;
+	font-weight: bold;
+	font-size: 1.8em;
+}	
+
+.artist-card .title {
+	flex: 2;
+}
+
+.artist-card .artist {
+	flex: 2;
+	color: #555;
+}
+
+.artist-card .genre {
+	flex: 1;
+	font-size: 0.9em;
+	color: #666;
+}
+
+/* ========== セクション見出し ========== */
+h2 {
+	margin-left: 47%;
+	font-size: 1.4em;
+	margin-bottom: 1em;
+}
+
+/* ========== フッター ========== */
+footer {
+/*	text-align: center;*/
+	margin-left: 46%;
+	font-size: 0.9em;
+	padding: 1em 0;
+	color: #888;
+	margin-top: auto;
+}

@@ -29,13 +29,13 @@ public class ManegerUserEdit extends HttpServlet {
                 request.getRequestDispatcher("/views/maneger/manegerUserEdit.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMessage", "該当するユーザーが見つかりませんでした。");
-                request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "エラーが発生しました：" + e.getMessage());
-            request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
         }
     }
 }

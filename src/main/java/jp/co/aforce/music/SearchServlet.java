@@ -1,7 +1,6 @@
 package jp.co.aforce.music;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
@@ -13,70 +12,53 @@ import jakarta.servlet.http.HttpServletResponse;
 import jp.co.aforce.beans.MusicBean;
 import jp.co.aforce.dao.MusicDAO;
 
-/**
- * Servlet implementation class SearchServlet
- */
-@WebServlet(urlPatterns = {"/views/music/searchForm"})
+
+@WebServlet("/views/music/searchForm")
 public class SearchServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=UTF-8");
 
         String type = request.getParameter("type");
         String query = request.getParameter("query");
 
-        try (PrintWriter out = response.getWriter()) {
+        try {
             MusicDAO dao = new MusicDAO();
             List<MusicBean> resultList;
-
+            
+            //タイトル検索
             if ("title".equals(type)) {
                 resultList = dao.searchByTitle(query);
 
-                // JSON出力
-                out.print(toJsonTitleList(resultList));
+                if (resultList.size() == 1) {
+                    int musicId = resultList.get(0).getMusic_id();
 
+                    response.sendRedirect(request.getContextPath() + "/views/music/aboutMusic?id=" + musicId);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/views/music/musicList.jsp?keyword=" + query);
+                }
+                
+                //アーティスト検索の場合
             } else if ("artist".equals(type)) {
                 resultList = dao.searchArtistName(query);
 
-                // JSON出力（nameのみ）
-                out.print(toJsonArtistList(resultList));
+                if (resultList.size() == 1) {
+                    int artist_id = resultList.get(0).getArtist_id(); 
+                    
+                    //アーティスト詳細へリダイレクト（AboutArtistServletに処理を任せる）
+                    response.sendRedirect(request.getContextPath() + "/views/artist/aboutArtist?id=" + artist_id);
+                    
+                } else {
+                	// 複数ヒット、または0件の場合はリストにリダイレクト
+                    response.sendRedirect(request.getContextPath() + "/views/artist/artistList.jsp?keyword=" + query);
+                }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/error.jsp");
         }
-    }
-
-    // タイトル検索の結果をJSON配列に変換
-    private String toJsonTitleList(List<MusicBean> list) {
-        StringBuilder json = new StringBuilder("[");
-        for (int i = 0; i < list.size(); i++) {
-            MusicBean m = list.get(i);
-            json.append("{")
-                .append("\"title\":\"").append(escape(m.getTitle())).append("\",")
-                .append("\"artistName\":\"").append(escape(m.getName())).append("\"")
-                .append("}");
-            if (i < list.size() - 1) json.append(",");
-        }
-        json.append("]");
-        return json.toString();
-    }
-
-    // アーティスト検索の結果をJSON配列に変換
-    private String toJsonArtistList(List<MusicBean> list) {
-        StringBuilder json = new StringBuilder("[");
-        for (int i = 0; i < list.size(); i++) {
-            MusicBean m = list.get(i);
-            json.append("{\"name\":\"").append(escape(m.getName())).append("\"}");
-            if (i < list.size() - 1) json.append(",");
-        }
-        json.append("]");
-        return json.toString();
-    }
-
-    private String escape(String str) {
-        if (str == null) return "";
-        return str.replace("\"", "\\\"").replace("\n", "").replace("\r", "");
     }
 }

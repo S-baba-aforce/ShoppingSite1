@@ -22,7 +22,7 @@ public class SortDAO extends DAO{
 	    
 	    switch (sortType) {
         case "popular":
-            sql = "SELECT m.*, a.name AS artist_name, COALESCE(SUM(p.amount), 0) AS total_sales " +
+            sql = "SELECT m.*, a.name, a.icon_path, COALESCE(SUM(p.amount), 0) AS total_sales " +
                   "FROM music m " +
                   "JOIN artist a ON m.artist_id = a.artist_id " +
                   "LEFT JOIN purchase p ON m.music_id = p.music_id " +
@@ -31,20 +31,20 @@ public class SortDAO extends DAO{
             break;
 
         case "price_high":
-            sql = "SELECT m.*, a.name AS artist_name FROM music m " +
+            sql = "SELECT m.*, a.name, a.icon_path  FROM music m " +
                   "JOIN artist a ON m.artist_id = a.artist_id " +
                   "ORDER BY m.price DESC LIMIT 10";
             break;
 
         case "price_low":
-            sql = "SELECT m.*, a.name AS artist_name FROM music m " +
+            sql = "SELECT m.*, a.name, a.icon_path FROM music m " +
                   "JOIN artist a ON m.artist_id = a.artist_id " +
                   "ORDER BY m.price ASC LIMIT 10";
             break;
 
         case "new":
         default:
-            sql = "SELECT m.*, a.name AS artist_name FROM music m " +
+            sql = "SELECT m.*, a.name, a.icon_path FROM music m " +
                   "JOIN artist a ON m.artist_id = a.artist_id " +
                   "ORDER BY m.created_at DESC LIMIT 10";
             break;
@@ -58,11 +58,12 @@ public class SortDAO extends DAO{
 				music.setMusic_id(rs.getInt("music_id"));
 				music.setTitle(rs.getString("title"));
 				music.setArtist_id(rs.getInt("artist_id"));
-				music.setName(rs.getString("artist_name"));
+				music.setName(rs.getString("name"));
 				music.setGenre(rs.getString("genre"));
 				music.setPrice(rs.getInt("price"));
 				music.setFile_path(rs.getString("file_path"));
 				music.setDescription(rs.getString("description"));
+				music.setIcon_path(rs.getString("icon_path"));
 				list.add(music);
 			}
 

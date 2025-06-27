@@ -18,7 +18,7 @@ public class PurchaseBean {
 	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(String memeberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	public int getMusic_id() {

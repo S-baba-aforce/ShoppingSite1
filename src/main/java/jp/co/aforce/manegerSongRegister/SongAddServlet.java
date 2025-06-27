@@ -32,7 +32,7 @@ public class SongAddServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "アーティスト一覧の取得に失敗しました。");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
         }
     }
 	

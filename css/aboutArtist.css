@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Gothic+B1&display=swap');
+
+* {
+  font-family: 'Shippori Gothic B1', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfcf8;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #fdfcf8;
+  padding: 1em 2em;
+  border-bottom: 1px solid #eee;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1E90FF;
+  font-weight: bold;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 1em;
+  gap: 2em;
+  text-align: center;
+}
+
+.artist-info img {
+  width: 180px;
+  border-radius: 12px;
+}
+
+.artist-info h2 {
+  margin: 0.5em 0;
+  font-size: 1.8em;
+}
+
+.artist-info p {
+  font-size: 1em;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.popular-songs, .sns-links {
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+.popular-songs h3,
+.sns-links h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  margin-left: 43%;
+}
+
+.popular-songs ul,
+.sns-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 41%;
+}
+
+.popular-songs li::before,
+.sns-links li::before {
+	content: '‣';
+	margin-right: 0.5em;
+	color: #1E90FF;
+	display: inline-block;
+}
+
+.popular-songs a,
+.sns-links a {
+  color: #222;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 0.9em;
+  color: #888;
+}

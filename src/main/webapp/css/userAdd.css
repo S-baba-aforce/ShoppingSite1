@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/* userAdd.css */
+
+:root {
+  --main-blue: #1E90FF;
+  --bg-color: #fdfcf8;
+  --text-color: #222;
+}
+
+/* 全体の基本設定 */
+body {
+    background-color: #fdfcf8;
+    color: black;
+    font-family: 'ShipporiGothic',sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* メイン（中央配置） */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 内容の中央寄せブロック */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    width: 100%;
+}
+
+ /*タイトル*/ 
+.container h2 {
+    text-align: left;
+    width: 33vm;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+ /*フォーム全体*/ 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+	width: 100%;
+	margin-top: 10%;
+}
+
+ /*フォーム各行 */
+form p {
+    display: flex;
+    flex-direction: column;
+	align-items: flex-start;
+    width: 33vw;   
+	margin: 0;
+	font-size: 1em;
+	gap: 0.4em;
+}
+
+/* ラベル部分（p内のテキスト） */
+/*form p::before {*/
+/*    content: attr(data-label);*/
+/*    display: block;*/
+/*    text-align: left;*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 0.3em;*/
+/*}*/
+
+ /*input共通設定*/ 
+input[type="text"],
+input[type="password"],
+input[type="mail"] {
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1em;
+	padding: 0.3em 0;
+}
+
+ /*半角英数字系*/ 
+input[name="member_id"],
+input[name="password"] {
+    text-align: left;
+}
+
+ /*ボタン*/ 
+input[type="submit"],
+input[type="reset"] {
+    margin-top: 5%;
+    background: none;
+    border: 2px solid #1E90FF;
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+ /*リンク*/ 
+a {
+	display: block ;
+	margin-top: 10%;
+    color: #1E90FF ;
+    text-decoration: none;
+	font-weight: bold;
+	font-size: 1em;
+	margin-left: 37%;
+}
+
+ /*--- フッター ---*/ 
+footer {
+    text-align: center;
+    padding: 2em 0;
+    font-size: 0.9em;
+    color: #888;
+    background-color: transparent;
+    margin-top: 4em;
+}

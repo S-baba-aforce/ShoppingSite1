@@ -1,0 +1,124 @@
+/*@charset "UTF-8";*/
+
+/* --- 全体設定 --- */
+
+/*html {*/
+/*	font-size: 100%;*/
+/*}*/
+
+/*フォント*/
+
+/*@font-face {*/
+/*  font-family: 'ShipporiGothic';*/
+/*  src: url('../fonts/ShipporiGothic-Bold.ttf') format('truetype');*/
+/*  font-weight: 700;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'ShipporiGothic';*/
+/*  src: url('../fonts/ShipporiGothic-Medium.ttf') format('truetype');*/
+/*  font-weight: 500;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'ShipporiGothic';*/
+/*  src: url('../fonts/ShipporiGothic-Regular.ttf') format('truetype');*/
+/*  font-weight: 400;*/
+/*}*/
+
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-color: #fdfcf8;  アイボリー */
+/*    color: #222;  黒文字 */
+/*    font-family: 'Noto Sans JP', sans-serif;*/
+/*    line-height: 1.6;*/
+/*}*/
+
+/*h1, h2, h3 {*/
+/*    font-weight: 600;*/
+/*    margin-bottom: 0.5em;*/
+/*}*/
+
+/*a {*/
+/*    color:　#1E90FF;  爽やかな青 */
+/*    text-decoration: none;*/
+/*}*/
+
+/*a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/* --- ヘッダー --- */
+/*header {*/
+/*    background-color: #fdfcf8;*/
+/*    padding: 1em 2em;*/
+/*    box-shadow: 0 2px 4px rgba(0,0,0,0.05);*/
+/*}*/
+
+/*header h1 {*/
+/*    margin: 0;*/
+/*    font-size: 1.5rem;*/
+/*    color: #222;*/
+/*}*/
+
+/* --- コンテナ --- */
+/*.container {*/
+/*    max-width: 960px;*/
+/*    margin: 2em auto;*/
+/*    padding: 0 1em;*/
+/*}*/
+
+/* --- ボタン --- */
+/*button, input[type="submit"] {*/
+/*    background-color: #1E90FF ;*/
+/*    color:#fdfcf8 ;*/
+/*    border: none;*/
+/*    padding: 0.6em 1.2em;*/
+/*    border-radius: 8px;*/
+/*    font-size: 1rem;*/
+/*    cursor: pointer;*/
+/*    transition: background 0.2s;*/
+/*}*/
+
+/*button:hover, input[type="submit"]:hover {*/
+/*    background-color: #1E90FF ;*/
+/*}*/
+
+/* --- フォーム --- */
+/*form {*/
+/*    background-color: #fdfcf8 ;*/
+/*    padding: 2em;*/
+/*    border-radius: 12px;*/
+/*    box-shadow: 0 2px 8px rgba(0,0,0,0.05);*/
+/*}*/
+
+/* --- ラベルとインプット --- */
+/*label {*/
+/*    display: block;*/
+/*    font-weight: bold;*/
+/*    margin-top: 1em;*/
+/*}*/
+
+/*input[type="text"],*/
+/*input[type="number"],*/
+/*input[type="file"],*/
+/*textarea,*/
+/*select {*/
+/*    width: 100%;*/
+/*    padding: 0.6em;*/
+/*    margin-top: 0.3em;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 6px;*/
+/*    font-size: 1rem;*/
+/*}*/
+
+/* --- フッター --- */
+/*footer {*/
+/*    background-color: #fdfcf8 ;*/
+/*    color: #777;*/
+/*    text-align: center;*/
+/*    padding: 1em;*/
+/*    font-size: 0.9em;*/
+/*    margin-top: 3em;*/
+/*}*/

@@ -16,6 +16,7 @@ public class MusicBean implements Serializable {
 		private Timestamp created_at;
 		private String name;
 		private int amount;
+		private String icon_path;
 		
 		public int getMusic_id() {
 			return music_id;
@@ -76,5 +77,11 @@ public class MusicBean implements Serializable {
 		}
 		public void setAmount(int amount) {
 		    this.amount = amount;
+		}
+		public String getIcon_path() {
+		    return icon_path;
+		}
+		public void setIcon_path(String icon_path) {
+		    this.icon_path = icon_path;
 		}
 }

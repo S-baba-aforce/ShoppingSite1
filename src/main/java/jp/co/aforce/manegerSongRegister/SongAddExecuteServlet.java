@@ -44,13 +44,13 @@ public class SongAddExecuteServlet extends HttpServlet {
                 request.getRequestDispatcher("songAddSuccess.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMessage", "楽曲の登録に失敗しました。");
-                request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "エラーが発生しました：" + e.getMessage());
-            request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
         }
     }
 }

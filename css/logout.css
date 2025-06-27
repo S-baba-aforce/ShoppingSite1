@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+/* 全体を上下に分けるレイアウト */
+body {
+    background-color: #fdfcf8;
+    color: black;
+    font-family: 'ShipporiGothic',sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 中央に表示される内容 */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ログアウトメッセージ用ブロック */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+/* 見出し */
+.container h2 {
+    font-size: 1.8em;
+    margin: 0;
+    text-align: center;
+}
+
+/* 横線 */
+hr {
+    width: 33vw;
+    border: none;
+    border-top: 1px solid black;
+    margin: 0;
+}
+
+/* リンク */
+.container a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-size: 1em;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 1em 0;
+	color: #888;
+}

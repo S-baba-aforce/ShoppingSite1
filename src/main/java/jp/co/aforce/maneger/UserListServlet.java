@@ -25,7 +25,7 @@ public class UserListServlet extends HttpServlet {
     } catch (Exception e) {
       e.printStackTrace();
       req.setAttribute("errorMessage", "エラーが発生しました：" + e.getMessage());
-      req.getRequestDispatcher("/views/error.jsp").forward(req, res);
+      req.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(req, res);
     }
   }
 }

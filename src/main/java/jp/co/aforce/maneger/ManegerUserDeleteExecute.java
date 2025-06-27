@@ -31,13 +31,13 @@ public class ManegerUserDeleteExecute extends HttpServlet {
             } else {
                 // 削除失敗
                 request.setAttribute("errorMessage", "削除に失敗しました。会員が存在しない可能性があります。");
-                request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "エラーが発生しました：" + e.getMessage());
-            request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/maneger/manegerError.jsp").forward(request, response);
         }
     }
 }

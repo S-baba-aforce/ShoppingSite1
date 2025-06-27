@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Gothic&display=swap');
+
+body {
+  font-family: 'Shippori Gothic', sans-serif;
+  background-color: #fdfcf8;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2em;
+  color: #1E90FF;
+  font-size: 2em;
+}
+
+form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+form p {
+  font-size: 1em;
+  text-align: left ;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 0.5em;
+  width: 250px;
+  font-size: 1em;
+  border: none;
+  border-bottom: 1px solid #888;
+  background-color: none;
+}
+
+input[type="submit"] {
+  margin-top: 1.5em;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  color: #1E90FF;
+  border: 2px solid #1E90FF;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  margin-top: 1em;
+  color: #1E90FF;
+  text-decoration: none;
+  border-bottom: 1px solid #1E90FF;
+  margin-bottom: 5%;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1em;
+  font-weight: bold;
+}

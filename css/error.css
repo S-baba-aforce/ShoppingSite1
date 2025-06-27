@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* ベース設定 */
+body {
+	background-color: #fdfcf8;
+	color: black;
+	font-family: 'ShipporiGothic',sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 中央寄せ */
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 中央ブロック */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5em;
+	width: 100%;
+}
+
+/* エラーメッセージ */
+.container h3 {
+	font-size: 1.5em;
+	text-align: center;
+	margin: 0;
+}
+
+.container p {
+	font-size: 1em;
+	text-align: center;
+	margin: 0;
+}
+
+/* 戻るリンク */
+.container a {
+	color: #1E90FF;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+/* フッター */
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	padding: 1em 0;
+	color: #888;
+}

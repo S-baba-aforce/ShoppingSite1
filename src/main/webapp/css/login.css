@@ -1,0 +1,71 @@
+/* login.css */
+
+/* --- 色とフォント共通設定 --- */
+:root {
+  --main-blue: #1E90FF;
+  --bg-ivory: #fdfcf8;
+  --text-black: #222;
+}
+
+body {
+  background-color: var(--bg-ivory);
+  color: var(--text-black);
+  font-family: 'ShipporiGothic', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 480px;
+  margin: 6em auto;
+  padding: 2em;
+  text-align: left;
+}
+
+/* --- フォーム全体 --- */
+form {
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+/* --- 入力フィールド --- */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.6em;
+  border: none ;
+  border-bottom: 2px solid var(--text-black);
+  background-color: none;
+  font-size: 1em;
+  color: var(--text-black);
+  outline: none;
+}
+
+/* --- ボタン --- */
+input[type="submit"] {
+  display: inline-block;	
+  background: none;
+  border: 2px solid #1E90FF ;
+  padding: 0.6em 2em;
+  font-size: 1em;
+  margin-top: 1em;
+  cursor: pointer;
+  color: #222 ;
+  background-color: none;
+}
+
+/* --- ラベル付き段落 --- */
+form p {
+  margin-bottom: 1.5em;
+  font-size: 1em;
+}
+
+/* --- フッター --- */
+footer {
+    text-align: center;
+    padding: 2em 0;
+    font-size: 0.9em;
+    color: #888;
+    background-color: transparent;
+    margin-top: 4em;
+}

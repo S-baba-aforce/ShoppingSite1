@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/* 全体の設定 */
+body {
+	background-color: #fdfcf8;
+	color: black;
+	font-family: 'ShipporiGothic',sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 中央寄せ */
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 中央配置ブロック */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
+	width: 100%;
+}
+
+/* タイトルだけ左寄せ */
+.container h2 {
+	width: 33vw;
+	text-align: center;
+	font-size: 1.8em;
+	margin: 0;
+}
+
+/* 名前表示 */
+.container p {
+	font-size: 1.1em;
+	margin: 0;
+}
+
+/* フォーム：ボタン横並び */
+form {
+	display: flex;
+	gap: 2em;
+}
+
+/* ボタン */
+button {
+	background: none;
+	border: 2px solid #1E90FF;
+	padding: 0.5em 1.5em;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+/* フッター */
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	padding: 1em 0;
+	color: #888;
+}
